@@ -1,0 +1,26 @@
+<section class="phx-hero">
+  <h1></h1>
+  <p>Shop: apple flagship store</p>
+</section>
+<section>
+<table>
+  <tr>
+    <th>Img</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Discount</th>        
+  </tr>
+<%= for number <- @data do %>
+  <tr>
+    <td>
+    <img src="<%= "https://cf.shopee.vn/file/" <> number["image"]%>">
+    </td>
+    <td><%= number["name"]%></td>
+    <td><%= number["price"] / 100000
+    |> :erlang.float_to_binary([:compact, decimals: 2])%></td>
+    <td><%= number["discount"]%></td>            
+  </tr>
+<% end %>
+</table>
+</section>
+
